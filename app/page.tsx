@@ -1,101 +1,187 @@
-import Image from "next/image";
-
+'use client'
+import Image from 'next/image'
+import { Github, Linkedin, Mail } from 'lucide-react'
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Terminal } from "@/components/Terminal"
+import { TypeWriter } from "@/components/TypeWriter"
+import { MatrixBackground } from "@/components/MatrixBackground"
+import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [showAbout, setShowAbout] = useState(false)
+  const [showProjects, setShowProjects] = useState(false)
+  const [, setShowSkills] = useState(false)
+  const [showWindow,setShowWindow]=useState(true);
+  
+  
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const projects = [
+    {
+      title: "Expense Tracker",
+      description: "A mobile app for tracking personal expenses",
+      tags: ["ExpressJs", "Flutter", "MongoDB"],
+      link: "https://github.com/mouloud240/Expense-Tracker-App"
+    },
+    {
+      title: "Portfolio Website",
+      description: "A responsive portfolio website built with Next.js",
+      tags: ["Next.js", "Tailwind CSS", "TypeScript"],
+      link: "https://github.com/mouloud240/Portfolio"
+    },
+    {
+
+      title: "TaskWan",
+      description: "A task management app built with Flutter and Firebase",
+      tags: [ "Flutter", "Firebase"],
+      link: "https://github.com/mouloud240/taskManager"
+    },
+    {
+      title:"Chatti",
+      description:"A chat application built with NextJs and express",
+      tags:["Next.js","ExpressJs","Socket.io"],
+      link:"https://github.com/mouloud240/Chatti"
+    }
+  ]
+  function handleOpenClick(){
+    setShowWindow(!showWindow)
+  }
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowAbout(true), 1000)
+    return () => clearTimeout(timer)
+  }, [])
+ const center=!showWindow?'h-screen':'h-full'; 
+
+  return (
+    <main className="min-h-screen bg-black bg-opacity-80 text-green-400 p-4 font-mono relative">
+            <MatrixBackground />
+
+      <div className={`flex w-full ${center} justify-center items-center `}><div className='z-10 '>        
+        {
+          !showWindow &&(  <button onClick={handleOpenClick}>
+            <Image src={"/app.svg"} alt='Logo' width={62} height={25}/>
+          </button>
+          )        
+        }
+
+      </div>
+
+      </div>      {
+        showWindow&&(
+          
+    
+      <motion.div drag dragConstraints={{top:-500,left:-500,right:500,bottom:500}}  className="max-w-3xl mx-auto border border-green-400 rounded-lg overflow-hidden relative z-10 bg-black bg-opacity-90">
+        <div className="bg-green-400 text-black px-4 py-2 flex justify-between items-center">
+          <span>portfolio.exe</span>
+          <div className="flex space-x-2">
+            <div className="w-3 h-3 rounded-full bg-red-500 cursor-pointer" onClick={handleOpenClick}></div>
+            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+        <div className="p-4">
+          <div className="mb-8">
+            <p className="mb-2">$ whoami</p>
+            <div className="pl-4">
+              <Image
+                src="https://github.com/mouloud240.png"
+                alt="Your Name"
+                width={80}
+                height={80}
+                className="rounded-full mb-2"
+              />
+              <h1 className="text-2xl font-bold mb-1">
+                <TypeWriter text="Your Name" delay={100} />
+              </h1>
+              <p className="text-green-200 mb-2">
+                <TypeWriter text="Full-Stack Developer" delay={50} />
+              </p>
+              <div className="flex space-x-2">
+                <Button variant="outline" size="icon" asChild className="text-green-400 border-green-400 hover:bg-green-400 hover:text-black">
+                  <a href="https://github.com/mouloud240" target="_blank" rel="noopener noreferrer">
+                    <Github className="h-4 w-4" />
+                    <span className="sr-only">GitHub</span>
+                  </a>
+                </Button>
+                <Button variant="outline" size="icon" asChild className="text-green-400 border-green-400 hover:bg-green-400 hover:text-black">
+                  <a href="https://www.linkedin.com/in/mouloud-hasrane-85bb47291/" target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="h-4 w-4" />
+                    <span className="sr-only">LinkedIn</span>
+                  </a>
+                </Button>
+                <Button variant="outline" size="icon" asChild className="text-green-400 border-green-400 hover:bg-green-400 hover:text-black">
+                  <a href="mailto:mouloudhasrane24@gmail.com">
+                    <Mail className="h-4 w-4" />
+                    <span className="sr-only">Email</span>
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {showAbout && (
+            <div className="mb-8">
+              <p className="mb-2">$ cat about.txt</p>
+              <p className="pl-4 text-green-200">
+                <TypeWriter 
+                  text="I'm a passionate full-stack developer with experience in building web and mobile applications. I love working with modern technologies and am always eager to learn new skills."
+                  delay={20}
+                  onComplete={() => setShowProjects(true)}
+                />
+              </p>
+            </div>
+          )}
+
+          {showProjects && (
+            <div className="mb-8">
+              <p className="mb-2">$ ls projects/</p>
+              <div className="pl-4 space-y-4">
+                {projects.map((project, index) => (
+                  <div key={index} className="border border-green-400 p-4 rounded">
+                    <h3 className="text-lg font-semibold mb-1">
+                      <TypeWriter text={project.title} delay={50} />
+                    </h3>
+                    <p className="text-green-200 mb-2">
+                      <TypeWriter text={project.description} delay={20} />
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      {project.tags.map((tag, tagIndex) => (
+                        <Badge key={tagIndex} variant="outline" className="text-green-400 border-green-400">
+                          <TypeWriter text={tag} delay={30} />
+                        </Badge>
+                      ))}
+                    </div>
+                    <Button asChild variant="outline" className="text-green-400 border-green-400 hover:bg-green-400 hover:text-black">
+                      <a href={project.link} target="_blank" rel="noopener noreferrer">View Project</a>
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {showProjects && (
+            <div>
+              <p className="mb-2">$ echo $SKILLS</p>
+              <div className="pl-4 flex flex-wrap gap-2">
+                {['JavaScript', 'TypeScript', 'React', 'Node.js', 'Next.js', 'Python', 'SQL', 'Git'].map((skill, index) => (
+                  <Badge key={skill} variant="outline" className="text-green-400 border-green-400">
+                    <TypeWriter text={skill} delay={50} onComplete={() => {
+                      if (index === 7) setShowSkills(true)
+                    }} />
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </motion.div>
+        )
+      }
+      <Terminal />
+      <div className="fixed bottom-4 left-4 w-2 h-5 bg-green-400 animate-pulse"></div>
+    </main>
+  )
 }
+

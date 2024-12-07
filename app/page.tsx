@@ -89,13 +89,13 @@ export default function Home() {
             <div className="pl-4">
               <Image
                 src="https://github.com/mouloud240.png"
-                alt="Your Name"
+                alt="Mouloud Hasrane"
                 width={80}
                 height={80}
                 className="rounded-full mb-2"
               />
               <h1 className="text-2xl font-bold mb-1">
-                <TypeWriter text="Your Name" delay={100} />
+                <TypeWriter text="Mouloud Hasrane" delay={100} />
               </h1>
               <p className="text-green-200 mb-2">
                 <TypeWriter text="Full-Stack Developer" delay={50} />

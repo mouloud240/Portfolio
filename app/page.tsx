@@ -7,7 +7,8 @@ import { Terminal } from "@/components/Terminal"
 import { TypeWriter } from "@/components/TypeWriter"
 import { MatrixBackground } from "@/components/MatrixBackground"
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+
+import { motion } from 'framer-motion';
 export default function Home() {
   const [showAbout, setShowAbout] = useState(false)
   const [showProjects, setShowProjects] = useState(false)
@@ -71,7 +72,9 @@ export default function Home() {
         showWindow&&(
           
     
-      <motion.div drag dragConstraints={{top:-500,left:-500,right:500,bottom:500}}  className="max-w-3xl mx-auto border border-green-400 rounded-lg overflow-hidden relative z-10 bg-black bg-opacity-90">
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-expect-error
+<motion.div drag dragConstraints={{top:-500,bottom:500,left:-500,right:500}} className="mx-auto border border-green-400 rounded-lg overflow-hidden relative z-10 max-w-4xl w-full bg-black bg-opacity-90">
         <div className="bg-green-400 text-black px-4 py-2 flex justify-between items-center">
           <span>portfolio.exe</span>
           <div className="flex space-x-2">

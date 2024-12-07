@@ -27,7 +27,7 @@ export function Terminal() {
     let output = ''
     switch (input.toLowerCase()) {
       case 'help':
-        output = 'Available commands: help, about, skills, projects, clear'
+        output = 'Available commands: help, about, skills, projects, clear,exit'
         break
       case 'about':
         output = "I'm a passionate full-stack developer with experience in building web and mobile applications."
@@ -41,6 +41,9 @@ export function Terminal() {
       case 'clear':
         setHistory([])
         setInput('')
+        return
+      case 'exit':
+        setIsOpen(false)
         return
       default:
         output = `Command not found: ${input}. Type 'help' for available commands.`

@@ -33,7 +33,7 @@ export function Terminal() {
         output = "I'm a passionate full-stack developer with experience in building web and mobile applications."
         break
       case 'skills':
-        output = 'JavaScript, TypeScript, React, Node.js, Next.js, Python, SQL, Git'
+        output = 'JavaScript, TypeScript, React, Node.js, Next.js, Python, SQL, Git,NestJS'
         break
       case 'projects':
         output = 'Expense Tracker, Portfolio Website, Weather App'

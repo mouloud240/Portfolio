@@ -43,6 +43,7 @@ export function Terminal() {
         setInput('')
         return
       case 'exit':
+        setInput('');
         setIsOpen(false)
         return
       default:

@@ -15,9 +15,7 @@ export default function Home() {
   const [, setShowSkills] = useState(false)
   const [showWindow,setShowWindow]=useState(true);
   
- const mediaQuery =window.innerWidth < 768;
  
-const object=mediaQuery?{top:-500,bottom:500,left:-500,right:500}:{top:0,bottom:0,left:0,right:0};
 
   const projects = [
     {
@@ -76,7 +74,7 @@ const object=mediaQuery?{top:-500,bottom:500,left:-500,right:500}:{top:0,bottom:
     
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-expect-error
-<motion.div drag dragConstraints={object} className="mx-auto border border-green-400 rounded-lg overflow-hidden relative z-10 max-w-4xl w-full bg-black bg-opacity-90">
+<motion.div  className="mx-auto border border-green-400 rounded-lg overflow-hidden relative z-10 max-w-4xl w-full bg-black bg-opacity-90">
         <div className="bg-green-400 text-black px-4 py-2 flex justify-between items-center">
           <span>portfolio.exe</span>
           <div className="flex space-x-2">

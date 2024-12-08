@@ -44,6 +44,7 @@ export function Terminal() {
         return
       case 'exit':
         setInput('');
+        setHistory([]);
         setIsOpen(false)
         return
       default:

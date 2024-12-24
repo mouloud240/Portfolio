@@ -43,6 +43,12 @@ export default function Home() {
       tags:["Next.js","ExpressJs","Socket.io"],
       link:"https://github.com/mouloud240/Chatti"
     }
+    ,{
+      title:"Boumerdes Smart City",
+      description:"A full platform to handle Boumerdess tourism and accomadations Made on a 48h hackathon",
+      tags:["Next.js","Express.js","MonogDb","Flutter"],
+      link:"https://github.com/BscApp"
+    }
   ]
   function handleOpenClick(){
     setShowWindow(!showWindow)
@@ -168,7 +174,7 @@ export default function Home() {
             <div>
               <p className="mb-2">$ echo $SKILLS</p>
               <div className="pl-4 flex flex-wrap gap-2">
-                {['JavaScript', 'TypeScript', 'React', 'Node.js', 'Next.js', 'Python', 'SQL', 'Git','NestJs'].map((skill, index) => (
+                {['JavaScript', 'TypeScript', 'React', 'NeoVim','Node.js', 'Next.js', 'Python', 'SQL', 'Git','NestJs'].map((skill, index) => (
                   <Badge key={skill} variant="outline" className="text-green-400 border-green-400">
                     <TypeWriter text={skill} delay={50} onComplete={() => {
                       if (index === 7) setShowSkills(true)

@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
+import { projects } from '@/app/contansts/projects'
 
 type Command = {
   command: string
@@ -36,7 +37,7 @@ export function Terminal() {
         output = 'JavaScript, TypeScript,NeoVim ,React, Node.js, Next.js, Python, SQL, Git,NestJS'
         break
       case 'projects':
-        output = 'Expense Tracker, Portfolio Website, Weather App'
+        output = projects.map((project) => project.title).join(', ')
         break
       case 'clear':
         setHistory([])

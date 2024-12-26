@@ -61,6 +61,9 @@ export default function Home() {
           <div className="mb-8">
             <p className="mb-2">$ whoami</p>
             <div className="pl-4">
+                  {
+                    //this comment is just to make the pfp refresh
+                  }
               <Image
                 src="https://github.com/mouloud240.png"
                 alt="Mouloud Hasrane"

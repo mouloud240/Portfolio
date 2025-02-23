@@ -36,5 +36,17 @@ export const projects:Iproject[] = [
       tags:["Next.js","Express.js","MonogDb","Flutter"],
       link:"https://github.com/BscApp"
     }, 
+    {
+    title:"EVENT HUB",
+    description:"A platform to  view ,create and Reserver events working on rsvp system",
+    tags:["Next.js","Nest.js"],
+    link:"http://github.com/mouloud240/EVENT-HUB"
+  },
+  {
+    title:"Carrer bridge",
+    description:"A platform to connect students with companies and help them to find interships and solve comapnies probelms as well as creating teams to solve problems for companies",
+    tags:["Flutter","Currenty in development"],
+    link:'https://www.example.com'
+  },
   ]
 

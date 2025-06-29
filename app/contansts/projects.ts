@@ -49,4 +49,20 @@ export const projects:Iproject[] = [
     link:'https://www.example.com'
   },
   ]
-
+export const experience: Iproject[] = [
+  {
+    title: "Backend Lead - Portals",
+    description:
+      "Helped create interactive virtual and in-person event management with user interaction, live streams, task delegation, and PR reviews.",
+    tags: [
+      "NestJS",
+      "RTMP",
+      "WebSocket",
+      "Redis",
+      "Pub-Sub",
+      "BullMQ",
+      "Elasticsearch"
+    ],
+    link: "https://www.example.com"
+  }
+];

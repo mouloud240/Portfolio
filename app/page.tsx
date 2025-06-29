@@ -15,7 +15,7 @@ import { experience } from './contansts/projects'
 export default function Home() {
   const [showAbout, setShowAbout] = useState(false)
   const [showProjects, setShowProjects] = useState(false)
-  const [showExperience, setShowExperience] = useState(false)
+  
   const [, setShowSkills] = useState(false)
   const [showWindow, setShowWindow] = useState(true)
 
